@@ -1,2 +1,0 @@
-/cise/homes/zhongyan/Documents/Database_Management_System/source/googletest/lib/CMakeFiles/gtest.dir
-/cise/homes/zhongyan/Documents/Database_Management_System/source/googletest/lib/CMakeFiles/gtest_main.dir

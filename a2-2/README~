@@ -1,3 +1,0 @@
-1. The source codes are located in the /source folder, and the executions will be inside the /bin folder.
-2. do">>make test1" (you get a2-1test program)
-   do">>make test2" (you get a2-2test program)
