@@ -1,0 +1,12 @@
+This is the Database Implementation Project phase 3. 
+Type in the terminal of:
+>> make test 
+>> cd bin
+>>./test [1-8] 
+(If there is nothing printed on the terminal. That means the results are right, otherwise it will print the error information)
+
+
+
+copyright@ Zhongyan QIU@CISE.UFL
+
+
