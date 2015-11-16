@@ -1,0 +1,25 @@
+1. The source codes are located in the /source folder, and the executions will be inside the /bin folder.
+
+2.What I did in this phase?
+This folder is actually a combination of Phase 4-2 and Phase 5.
+In Phase 4-2, I implemented the recursive routine for enumerating all possible query plans, and selecting the best one in terms of the plan that creates the smallest number of intermediate tuples, with the help of statistics info I did in last phase.
+
+In Phase 5, I put together all of the pieces form the previous phases and did a working system. You can do these following operations:
+
+(1)CREATE TABLE mytable (att1 INTEGER, att2 DOUBLE, att3 STRING) AS HEAP;
+(2)CREATE TABLE MYTABLE (att1 INTEGER, att2 DOUBLE, att3 STRING) AS SORTED ON att1, att2;
+
+(3)INSERT ‘myfile’ INTO mytable;
+
+(4)SELECT ………(Whatever query you want to do)
+
+(5)DROP TABLE mytable;
+
+(6)SET OUTPUT STDOUT;
+   SET OUTPUT ‘myfile’;
+   SET OUTPUT NONE;
+
+(7)UPDATE STATISTICS for mytable;
+copyright@ Zhongyan QIU@CISE.UFL
+
+

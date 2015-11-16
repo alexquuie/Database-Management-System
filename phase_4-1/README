@@ -1,11 +1,15 @@
-This is the Database Implementation Project phase 4. 
-Type in the terminal of:
+1. The source codes are located in the /source folder, and the executions will be inside the /bin folder.
+
+2.Type in the terminal of:
 >> make test 
 >> cd bin
 >> ./test [0-11]
 (If there is nothing printed on the terminal. That means the results are right, otherwise it will print the error information except test 1, in which we can just get approximate result.)
 
+The Statistics class will implement what essentially amounts to two different (but related) types of functionality. 
 
+First, this class will store statistical information about your database’s attributes and relations. In this sense, it is a container class. It will be able to serialize itself to a text file on disk, and re-read this information from disk at a later time.
+Second, the Statistics class also has the ability to use this statistical information during the optimization process to “simulate” joins and selection operations over the relations it describes, in order to guess what the statistics would be after the application of such relational operations to the actual data stored in the database.
 
 copyright@ Zhongyan QIU@CISE.UFL
 

@@ -1,6 +1,8 @@
 1. The source codes are located in the /source folder, and the executions will be inside the /bin folder.
 2. do">>make test1" (you get a2-1test program)
    do">>make test2" (you get a2-2test program)
-3. "cd bin"
+   "cd bin"
    ">>./test1"(run the a2-1test program)
    ">>./test2"(run the a2-2test program)
+3.What I did in this phase?
+I created a virtual base class that is used internally by the DBFile, to implement either sorted or heap file functionality. And it has two subclasses: Heap(unsorted) and Sorted. When you call DBFile.Create or DBFile.Open, DBFile creates an instance of either Heap or Sorted as appropriate, and then stores this instance in an internal class variable of type GenericDBFile (I call it myInernalVar in my program). Whenever someone external to the DBFile calls one of the DBFile functions like Insert, DBFile in turn calls myInternalVar.Insert, which will automatically invoke the correct (sorted or unsorted) functionality. 

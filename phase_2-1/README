@@ -1,3 +1,6 @@
 1. The source codes are located in the /source folder, and the executions will be inside the /bin folder.
+
 2. do">>make test" (you get test program)
-   do">>make" (the default execution is DBFileUnittest)
+
+3. What I do in this phase?
+In this phase, what I do is to implementing the BigQ class, which a disk-based priority queue implements the TPMMS algorithm. The BigQ class will be used by the sorted file to actually do its sorting. The BigQ class encapsulates the process of taking a stream of inserts, breaking the stream of inserts into runs, and then using an in-memory priority queue to organize the head of each run and give the records to the caller in sorted order. To speed up the sorting, I use pthreads for the purpose of multi-threading.

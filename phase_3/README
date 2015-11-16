@@ -1,10 +1,28 @@
-This is the Database Implementation Project phase 3. 
-Type in the terminal of:
+1. The source codes are located in the /source folder, and the executions will be inside the /bin folder.
+
+2.
 >> make test 
 >> cd bin
 >>./test [1-8] 
 
+3.What I did in this phase?
+I implemented a set of relational operations, specifically: SelectPipe, SelectFile, Project, Join, DuplicateRemoval, Sum, GroupBy, and WriteOut.
 
+(1)SelectPipe takes two pipes as input: an input pipe and an output pipe. It also takes aCNF. It simply applies that CNF to every tuple that comes through the pipe, and every tuple that is accepted is stuffed into the output pipe.
+
+(2)SelectFile takes a DBFile and a pipe as input. You can assume that this file is all set up; it has been opened and is ready to go. It also takes a CNF. It then performs a scan of the underlying file, and for every tuple accepted by the CNF, it stuffs the tuple into the pipe as output. The DBFile should not be closed by the SelectFile class; that is the job of the caller.
+
+(3)Project takes an input pipe and an output pipe as input. It also takes an array of integers keepMe as well as the number of attributes for the records coming through the input pipe and the number of attributes to keep from those input records. The array of integers tells Project which attributes to keep from the input records, and which order to put them in. So, for example, say that the array keepMe had the values [3, 5, 7, 1]. This means that Project should take the third attribute from every input record and treat it as the first attribute of those records that it puts into the output pipe. Project should take the fifth attribute from every input record and treat it as the second attribute of every record that it puts into the output pipe. The seventh input attribute becomes the third. And so on.
+
+(4)Join takes two input pipes, an output pipe, and a CNF, and joins all of the records from the two pipes according to that CNF. Join should use a BigQ to store all of the tuples coming from the left input pipe, and a second BigQ for the right input pipe, and then perform a merge in order to join the two input pipes. I created the OrderMakers for the two BigQ’s using the CNF (the function GetSortOrders will be used to create the OrderMakers). If you can’t get an appropriate pair of OrderMakers because the CNF can’t be implemented using a sort-merge join (due to the fact it does not have an equality check) then your Join operation should default to a block-nested loops join.
+
+(5)DuplicateRemoval takes an input pipe, an output pipe, as well as the schema for the tuples coming through the input pipe, and does a duplicate removal. That is, everything that somes through the output pipe will be distinct. It will use the BigQ class to do the duplicate removal. The OrderMaker that will be used by the BigQ (which you’ll need to write some code to create) will simply list all of the attributes from the input tuples.
+
+(6)Sum computes the SUM SQL aggregate function over the input pipe, and puts a single tuple into the output pipe that has the sum. The function over each tuple (for example: (l_extendedprice*(1-l_discount)) in the case of the TPC-H schema) that is summed is stored in an instance of the Function class that is also passed to Sum as an argument (you can download the Function class and its associated parser at http://www.cise.ufl.edu/class/cop6726sp11/A3/Function.tar).
+
+(7)GroupBy is a lot like Sum, except that it does grouping, and then puts one sum into the output pipe for each group. Every tuple put into the output pipe has a sum as the first attribute, followed by the values for each of the grouping attributes as the remainder of the attributes. The grouping is specified using an instance of the OrderMaker class that is passed in. The sum to compute is given in an instance of the Function class.
+
+(8)WriteOut accepts an input pipe, a schema, and a FILE*, and uses the schema to write text version of the output records to the file.
 
 copyright@ Zhongyan QIU@CISE.UFL
 
