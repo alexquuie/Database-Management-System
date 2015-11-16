@@ -1,0 +1,3 @@
+1. The source codes are located in the /source folder, and the executions will be inside the /bin folder.
+2. do">>make test" (you get test program)
+   do">>make" (the default execution is DBFileUnittest)
