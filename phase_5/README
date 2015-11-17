@@ -20,6 +20,25 @@ In Phase 5, I put together all of the pieces form the previous phases and did a 
    SET OUTPUT NONE;
 
 (7)UPDATE STATISTICS for mytable;
-copyright@ Zhongyan QIU@CISE.UFL
 
+3.
+Example:
+CREATE TABLE customer (c_custkey INTEGER, c_name STRING, c_address STRING, c_nationkey INTEGER, c_phone STRING, c_acctbal DOUBLE, c_mktsegment STRING, c_comment STRING) AS HEAP;
+
+CREATE TABLE orders (o_orderkey INTEGER, o_custkey INTEGER, o_orderstatus STRING, o_totalprice DOUBLE, o_orderdate STRING, o_orderpriority STRING, o_clerk STRING, o_shippriority  INTEGER, o_comment STRING) AS HEAP;
+
+INSERT 'customer.txt' INTO customer;
+INSERT 'orders.txt' INTO orders;
+//move tableName.bin and tableName.bin.meta to dbfile directory after loading the tablefile into tableName
+
+
+
+SELECT SUM (c.c_acctbal)
+FROM customer AS c, orders AS o
+WHERE (c.c_custkey = o.o_custkey) AND (o.o_totalprice < 10000.00);
+
+DROP TABLE customer;
+DROP TABLE orders;
+
+copyright@ Zhongyan QIU@CISE.UFL
 
