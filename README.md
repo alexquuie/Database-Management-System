@@ -5,3 +5,4 @@ project, and join).
 program provided by TPCH website, the famous standard database benchmark, to generate the big test data and utilized
 the google test framework to enhance my testing.
 * If you want to run this project, please remember to download, compile, and run the tpchgen program available from the TPC-H website to generate your own test data. Make a new folder /data inside each phase_x folder, copy the generated data into this folder!!!!!
+* You can directly go to Phase-5 to take an overview of my project.
